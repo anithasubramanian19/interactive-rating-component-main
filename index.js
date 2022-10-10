@@ -14,35 +14,38 @@ button.addEventListener('click', function(e){
     thankyou.classList.remove('hidden')
 })
 thankyou.addEventListener('click', function(e){
+    // e.stopPropagation
     interactive.classList.remove('hidden')
     thankyou.classList.add('hidden')
+    span.innerText = `You selected out of 5 `
 })
 oneElement.addEventListener('click', function(e){
-    // e.preventDefault
+    e.preventDefault
     
     span.innerText = `You selected ${array[0]} out of 5 `
     
+    
 })
 twoElement.addEventListener('click', function(e){
-    // e.preventDefault
+    e.preventDefault
     
     span.innerText = `You selected ${array[1]} out of 5 `
     
 })
 threeElement.addEventListener('click', function(e){
-    // e.preventDefault
+    e.preventDefault
     
     span.innerText = `You selected ${array[2]} out of 5 `
     
 })
 fourElement.addEventListener('click', function(e){
-    // e.preventDefault
+    e.preventDefault
     
     span.innerText = `You selected ${array[3]} out of 5 `
     
 })
 fiveElement.addEventListener('click', function(e){
-    // e.preventDefault
+    e.preventDefault
     
     span.innerText = `You selected ${array[4]} out of 5 `
     
