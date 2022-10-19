@@ -1,54 +1,29 @@
+const button = document.getElementsByClassName("btn")
+const submit = document.querySelector(".submit")
 const interactive = document.querySelector(".interactive")
-const oneElement = document.querySelector('.one')
-const twoElement = document.querySelector('.two')
-const threeElement = document.querySelector('.three')
-const fourElement = document.querySelector('.four')
-const fiveElement = document.querySelector('.five')
-const thankyou = document.querySelector(".thank-you")
-const button = document.querySelector("button")
-const span = document.getElementById("rating")
-const array = [1,2,3,4,5]
-button.addEventListener('click', function(e){
-    e.preventDefault
-    interactive.classList.add('hidden')
-    thankyou.classList.remove('hidden')
-})
-thankyou.addEventListener('click', function(e){
-    // e.stopPropagation
-    interactive.classList.remove('hidden')
-    thankyou.classList.add('hidden')
-    span.innerText = `You selected out of 5 `
-})
-oneElement.addEventListener('click', function(e){
-    e.preventDefault
-    
-    span.innerText = `You selected ${array[0]} out of 5 `
-    
-    
-})
-twoElement.addEventListener('click', function(e){
-    e.preventDefault
-    
-    span.innerText = `You selected ${array[1]} out of 5 `
-    
-})
-threeElement.addEventListener('click', function(e){
-    e.preventDefault
-    
-    span.innerText = `You selected ${array[2]} out of 5 `
-    
-})
-fourElement.addEventListener('click', function(e){
-    e.preventDefault
-    
-    span.innerText = `You selected ${array[3]} out of 5 `
-    
-})
-fiveElement.addEventListener('click', function(e){
-    e.preventDefault
-    
-    span.innerText = `You selected ${array[4]} out of 5 `
-    
-})
+const thankYou = document.querySelector(".thank-you")
+const rating = document.querySelector("#rating")
+for(let i = 0; i< button.length; i++){
+    let buttonClicked = button[i]
+    buttonClicked.addEventListener('click', updateColor)
+}
+function updateColor(event){
+    const clicked = event.target
 
+    clicked.style.background = "hsl(217, 12%, 63%)"
+    for(let i = 0; i<clicked.innerText.length; i++){
+        let rate = clicked.innerText[i]
+        rating.innerText = `You selected ${rate} out of 5`
+       
+    }
+    
+    submit.addEventListener('click', submitUpdate)
+    
+    
+}
 
+function submitUpdate(){
+    // event.preventDefault
+        interactive.style.display = "none"
+        thankYou.classList.remove("hidden")
+    }
